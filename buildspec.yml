@@ -1,0 +1,11 @@
+version: 0.2
+phases:
+    install:
+      runtime-versions:
+        java: corretto11
+    build:
+      commands:
+        - echo Building the Docker image...
+        - docker build -t SimpleJavaApplication .
+        - docker tag SimpleJavaApplication:latest <0144-9862-6666>.dkr.ecr.<ap-south-1>.amazonaws.com/SimpleJavaApplication:latest
+        - docker push <0144-9862-6666>.dkr.ecr.<ap-south-1>.amazonaws.com/SimpleJavaApplication:latest
